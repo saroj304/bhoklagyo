@@ -78,12 +78,13 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'bhoklagyo',
-        'USER': 'seetal',
+        'USER': 'santey',
         'PASSWORD': 'postgres',
         'HOST': 'localhost',
         'PORT': '5432',
     }
 }
+
 
 
 # Password validation
@@ -123,4 +124,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS=[STATIC_DIR]
+STATICFILES_DIRS = [STATIC_DIR]
