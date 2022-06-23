@@ -10,3 +10,4 @@ class User(models.Model):
     confirm_password = models.CharField(max_length=15)
     otp = models.CharField(max_length=6)
     
+    

@@ -20,4 +20,5 @@ from food_app import views as food_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', food_views.landing_page, name ='landing_page'),
+    path('food_app/',include('food_app.urls'))
 ]
