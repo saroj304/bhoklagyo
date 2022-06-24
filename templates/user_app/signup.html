@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{%load staticfiles%}
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>signup | VokLagyo</title>
-  <link rel="stylesheet" href="./css/login.css">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="{%static 'css/login.css' %}">
+  <link rel="stylesheet" href="{%static 'css/style.css' %}">
 </head>
 
 <body>
   <!-- header start -->
   <header>
     <nav class="navbar">
-      <a href="./index.html" class="nav-branding">Voklagyo</a>
+      <a href="/" class="nav-branding">Voklagyo</a>
       <ul class="nav-menu">
         <li class="nav-item">
           <a href="#" class="nav-link">Add Restaurent </a>
@@ -23,7 +23,7 @@
           <a href="#" class="nav-link">Services</a>
         </li>
         <li class="nav-item">
-          <a href="./login.html" class="nav-link">Login</a>
+          <a href="/user_app/login" class="nav-link">Login</a>
         </li>
       </ul>
       <div class="hamburger">
@@ -43,14 +43,22 @@
     <div class="contentBx">
       <div class="formBx">
         <h2>signup</h2>
-        <form id="signupForm">
+        <form action = "user_app/signup" id="signupForm">
           <div class="inputBx">
-            <span>Username</span>
+            <span>First Name</span>
+            <input type="text" name="" />
+          </div>
+          <div class="inputBx">
+            <span>Last Name</span>
             <input type="text" name="" />
           </div>
           <div class="inputBx">
             <span>Email</span>
             <input type="email" name="" />
+          </div>
+          <div class="inputBx">
+            <span>Mobile Number</span>
+            <input type="number" name="" />
           </div>
           <div class="inputBx">
             <span>Password</span>

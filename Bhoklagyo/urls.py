@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('food_app/',include('food_app.urls')),
     path('', food_views.landing_page, name ='landing_page'),
+    path('user_app/',include('user_app.urls'))
 ]
