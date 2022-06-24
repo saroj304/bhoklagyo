@@ -6,8 +6,8 @@ class User(models.Model):
     last_name = models.CharField(max_length=15)
     email = models.EmailField(max_length=254)
     phone = models.IntegerField()
-    password = models.CharField(max_length=15)
-    confirm_password = models.CharField(max_length=15)
-    otp = models.CharField(max_length=6)
+    password = models.CharField(max_length=200)
+    #confirm_password = models.CharField(max_length=15)
+    #otp = models.CharField(max_length=6)
     
     
