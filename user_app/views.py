@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 from django.shortcuts import render,redirect
 from django.core.exceptions import ObjectDoesNotExist
-
+from authentication_app import views as auth_views
 #from django.contrib.auth.models import login, authenticate
 from .models import User
 from django.contrib.auth.hashers import make_password, check_password
@@ -28,6 +28,8 @@ def register(request):
             user=None
         print(user)
         if user:
+            otp = auth_views.send_otp_via_email(email)
+            print(otp)
             message = messages.error(request, "User with provided info already exists.")
             return render(request,'user_app/signup.html',{'message':message})
         else:
