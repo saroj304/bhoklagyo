@@ -1,16 +1,52 @@
-{% extends './base.html' %}
+<!DOCTYPE html>
+<html lang="en">
 {% load static %}
-{% block title %} BhokLagyo {% endblock %}
-{% block content %}
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>signup | VokLagyo</title>
+  <link rel="stylesheet" href="{%static 'css/login.css' %}">
+  <link rel="stylesheet" href="{%static 'css/style.css' %}">
+</head>
+
+<body>
+  <!-- header start -->
+  <header>
+    <nav class="navbar">
+      <a href="/" class="nav-branding">Voklagyo</a>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="#" class="nav-link">Add Restaurent </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">Services</a>
+        </li>
+        <li class="nav-item">
+          <a href="/user_app/login" class="nav-link">Login</a>
+        </li>
+      </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </nav>
+  </header>
+  <!-- header end -->
+
 
   <!-- signup start -->
   <section>
+    {% if message %}
+      <span style="background-color:#FF4510">{{m}}</span>
+    {% endif %}
     <div class="imgBx">
-      <img src="{%static 'images/login-side.jpg'%}" alt="">
+      <img src="{% static 'images/login-side.jpg' %}" alt="">
     </div>
     <div class="contentBx">
       <div class="formBx">
-        <h2>signup {message}</h2>
+
         <form action="/user_app/register/" id="signupForm" method ="POST">
           {% csrf_token %}
           <div class="inputBx">
@@ -55,4 +91,10 @@
     </div>
   </section>
   <!-- signup end -->
-{% endblock %}
+  <script src="./js/script.js"></script>
+
+</body>
+<!-- <script src="./js/signupValidation.js"></script> -->
+
+</html>
+

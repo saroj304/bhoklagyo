@@ -1,7 +1,40 @@
-{% extends 'food_app/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
 {% load static %}
-{% block title %} Login | BhokLagyo {% endblock %}
-{% block content %}
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>login | VokLagyo</title>
+  <link rel="stylesheet" href="{%static 'css/login.css' %}">
+  <link rel="stylesheet" href="{%static 'css/style.css' %}">
+</head>
+
+<body>
+  <!-- header start -->
+  <header>
+    <nav class="navbar">
+      <a href=" /" class="nav-branding">Voklagyo</a>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="#" class="nav-link">Add Restaurent </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">Services</a>
+        </li>
+        <li class="nav-item">
+          <a href="/user_app/signup" class="nav-link">signup</a>
+        </li>
+      </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </nav>
+  </header>
+  <!-- header end -->
+
 
   <!-- login start -->
   <section>
@@ -11,14 +44,15 @@
     <div class="contentBx">
       <div class="formBx">
         <h2>Login</h2>
-        <form>
+        <form method="POST" action="/user_app/get/">
+          {% csrf_token %}
           <div class="inputBx">
             <span>Mobile Number</span>
-            <input type="number" name="" />
+            <input type="number" name="phone" />
           </div>
           <div class="inputBx">
             <span>Password</span>
-            <input type="password" name="" />
+            <input type="password" name="password" />
           </div>
           <div class="remember">
             <label><input type="checkbox" name="" /> Remember me </label>
@@ -44,4 +78,9 @@
     </div>
   </section>
 <!-- login end -->
-{% endblock %}
+
+<script src="./js/script.js"></script>
+</body>
+
+</html>
+
