@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-{%load staticfiles%}
+{% load static %}
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,12 +37,15 @@
 
   <!-- signup start -->
   <section>
+    {% if message %}
+      <span style="background-color:#FF4510">{{m}}</span>
+    {% endif %}
     <div class="imgBx">
-      <img src="{%static 'images/login-side.jpg'%}" alt="">
+      <img src="{% static 'images/login-side.jpg' %}" alt="">
     </div>
     <div class="contentBx">
       <div class="formBx">
-        <h2>signup {message}</h2>
+
         <form action="/user_app/register/" id="signupForm" method ="POST">
           {% csrf_token %}
           <div class="inputBx">

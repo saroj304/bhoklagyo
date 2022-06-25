@@ -1,7 +1,11 @@
 from django.http import HttpResponse
+from django.contrib import messages
 from django.shortcuts import render,redirect
+from django.core.exceptions import ObjectDoesNotExist
+
+#from django.contrib.auth.models import login, authenticate
 from .models import User
-from django.contrib.auth.hashers import make_password,check_password
+from django.contrib.auth.hashers import make_password, check_password
 
 # Create your views here.
 
@@ -18,25 +22,43 @@ def register(request):
         email = request.POST['email']
         phone = request.POST['phone']
         password = make_password(request.POST['password'])
-        #password =request.POST['password']
-        check_password=User.objects.filter(phone=phone).exists()
-        if check_password:
-            return redirect('signup')
+        try:
+            user = User.objects.get(phone=phone)
+        except ObjectDoesNotExist:
+            user=None
+        print(user)
+        if user:
+            message = messages.error(request, "User with provided info already exists.")
+            return render(request,'user_app/signup.html',{'message':message})
         else:
-            user = User.objects.create(first_name=first_name,last_name=last_name,email=email,phone=phone,password=password)
+            user = User.objects.create(first_name=first_name,
+                                       last_name=last_name,
+                                       email=email,
+                                       phone=phone,
+                                       password=password)
+
+           # authenticate_user = authenticate(user.phone, user.password)
+           # login(request, authenticate_user)
+
             return redirect("landing_page")
             
     else:
-        return HttpResponse('signup')    
-        
-def getPassword(request):
-    if request.method == 'POST':
-        userpassword = User.objects.filter(username='s')
-        for userdata in userpassword:
-            password = userdata.password
-            print(password)
-            if check_password(7,password):
+        return HttpResponse('signup')
+
+def login_user(request):
+    if request.method=='POST':
+        phone = request.POST['phone']
+        pass_key = request.POST['password']
+        print(phone, pass_key)
+
+        user = User.objects.get(phone=phone)
+        if user:
+            password = user.password
+            if check_password(pass_key, password):
                 return HttpResponse(password)
             else:
                 return HttpResponse("suck")
-    
+            # login(request, user)
+        else:
+            return HttpResponse("user not found")
+
