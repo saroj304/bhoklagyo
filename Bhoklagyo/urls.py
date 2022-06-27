@@ -22,6 +22,10 @@ urlpatterns = [
     path('food_app/',include('food_app.urls')),
     path('', food_views.landing_page, name ='landing_page'),
     path('user_app/',include('user_app.urls')),
+<<<<<<< HEAD
 
+=======
+    path('authentication_app/', include('authentication_app.urls'))
+>>>>>>> b42c6c1b83bbf0618fac4a49821434f018f8bfc3
 ]
 git
