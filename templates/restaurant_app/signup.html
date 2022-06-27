@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="/restaurant_app/register/">
+    {% csrf_token%}
+    <div>
+     RestaurantName   <label><input type="text" name="rest_name"></label>
+    </div>
+    <div>
+      City  <label><input type="text" name="city"></label>
+    </div>
+    <div>
+     Province   <label><input type="text" name="province"></label>
+    </div>
+
+    <div>
+      State  <label><input type="text" name="state"></label>
+    </div>
+    <div>
+     Province   <label><input type="number" name="postalcode"></label>
+    </div>
+<input type="submit" >
+</form>
+</body>
+</html>
